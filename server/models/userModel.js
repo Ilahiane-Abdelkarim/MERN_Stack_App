@@ -22,11 +22,7 @@ const userSchema = mongoose.Schema(
         location: {
             type: String,
             require: [true, 'Please add a location'],
-        },
-        type: {
-            type: String,
-            require: [true, 'Please add a type'],
-        },
+        }
     },
     {
         timestamps: true,
