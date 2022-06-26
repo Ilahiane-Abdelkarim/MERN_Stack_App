@@ -36,16 +36,16 @@ const updateGoal = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Goal Not Found')
     }
-    const user = await User.findById(req.user.id)
+    // const user = await User.findById(req.user.id)
 
     // Check for user
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('User Not Found')
     }
 
     // Make sur the login user match goals user
-    if (goal.user.toString() !== user.id) {
+    if (goal.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User Not connected')
     }
@@ -64,16 +64,15 @@ const deleteGoal = asyncHandler(async (req, res) => {
         throw new Error('Goal Not Found')
     }
 
-    const user = await User.findById(req.user.id)
 
     // Check for user
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('User Not Found')
     }
 
     // Make sur the login user match goals user
-    if (goal.user.toString() !== user.id) {
+    if (goal.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User Not connected')
     }

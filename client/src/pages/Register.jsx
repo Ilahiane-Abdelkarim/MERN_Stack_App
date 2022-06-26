@@ -36,7 +36,6 @@ function Register() {
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
-    console.log(e.target.name)
     setformData((prevState) => ({
         ...prevState,
         [e.target.name]: e.target.value,
