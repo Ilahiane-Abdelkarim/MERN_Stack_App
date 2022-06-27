@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/goals/'
+const API_URL = 'https://ila-test1.herokuapp.com/api/goals/'
 
 // create goal
 const createGoal = async (goalData, token) => {
