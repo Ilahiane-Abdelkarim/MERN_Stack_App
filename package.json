@@ -7,10 +7,10 @@
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm start --prefix client",
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
+    "build": "cd .. && cd client && npm run build",
+    "install-client": "cd .. && cd client && npm install",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run install-client && npm run build"
+    "heroku-postbuild": "NPM-CONFIG-PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
